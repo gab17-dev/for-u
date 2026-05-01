@@ -161,6 +161,39 @@ body {
 .b4 { top: 15%; }
 .b5 { top: 40%; }
 .b6 { top: 65%; }
+
+/* paper layout */
+.letter {
+  width: 90%;
+  max-width: 900px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* text like a letter */
+.letter-text {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* bottom section */
+.letter-footer {
+  margin-top: 40px;
+  border-top: 2px dashed #7a0c0c;
+  padding-top: 20px;
+  text-align: center;
+}
+
+/* big handwritten title */
+.letter-footer h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+  
 </style>
 </head>
 
@@ -207,31 +240,37 @@ body {
 
 <!-- MESSAGE -->
 <div class="page" id="message">
-  <h2>Message for my love</h2>
 
-  <p style="max-width:200px;">
-    Dear my baby love love ❤️<br><br>
+  <div class="letter">
 
-    When I met you and got to know you, it really changed my perspective in life. 
-    Bago kita makilala, I didn't know loving someone could be this beautiful.<br><br>
+    <div class="letter-text">
+      Dear my baby love love ❤️<br><br>
 
-    Every time I learn something about you, it makes me realize how much I want to know more about you 
-    and how much I truly value you.<br><br>
+      When I met you and got to know you, it really changed my perspective in life.
+      Bago kita makilala, I didn't know loving someone could be this beautiful.<br><br>
 
-    As time goes by, each thing I learn about you leads me to loving you more than I could ever say. 
-    Kaya naniniwala talaga ako sa saying na 
-    "knowing someone leads to loving them more."<br><br>
+      Every time I learn something about you, it makes me realize how much I want to know more about you
+      and how much I truly value you.<br><br>
 
-    I want you to know that I value you, I treasure you, I cherish you, 
-    and I will do whatever it takes to make you smile—kasi I love your smile.<br><br>
+      As time goes by, each thing I learn about you leads me to loving you more than I could ever say.
+      Kaya naniniwala talaga ako sa saying na "knowing someone leads to loving them more."<br><br>
 
-    Lastly baby, thank you for making me a better man. 
-    I am very, very thankful that you are my motivation and my strength to keep moving forward.<br><br>
+      I want you to know that I value you, I treasure you, I cherish you,
+      and I will do whatever it takes to make you smile—kasi I love your smile.<br><br>
 
-    I love you so much, my baby ❤️
-  </p>
+      Lastly baby, thank you for making me a better man.
+      I am very very thankful that you are my motivation and my strength to keep moving forward.<br><br>
 
-  <button class="btn" onclick="showPage('menu')">RETURN</button>
+      I love you so much, my baby ❤️
+    </div>
+
+    <div class="letter-footer">
+      <h2>Message for my love</h2>
+      <button class="btn" onclick="showPage('menu')">RETURN</button>
+    </div>
+
+  </div>
+
 </div>
 
 <!-- MEMORIES -->
