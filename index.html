@@ -87,31 +87,50 @@ body {
 }
 
 /* Flower */
-.flower-box {
-  position: relative;
-  width: 90%;
-  max-width: 750px;
-  height: 500px;
+.subtitle {
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
+/* container */
+.flower-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* flower */
 .flower-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 260px;
 }
 
+/* bubble groups */
+.bubble-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* bubbles */
 .bubble {
-  position: absolute;
-  max-width: 160px;
-  padding: 10px;
+  padding: 10px 15px;
   border: 2px solid #7a0c0c;
   border-radius: 20px;
   background: white;
-  font-size: 12px;
+  font-size: 13px;
+  text-align: center;
+  min-width: 140px;
 }
 
+/* back button */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
 .left { left: 0; }
 .right { right: 0; }
 
@@ -195,21 +214,27 @@ body {
 <!-- FLOWERS -->
 <div class="page" id="flowers">
   <h2 class="title">TULIPS</h2>
-  <p>your favorite flower</p>
+  <p class="subtitle">your favorite flower</p>
 
-  <div class="flower-box">
+  <div class="flower-container">
+
+    <div class="bubble-group left">
+      <div class="bubble">you make me happy</div>
+      <div class="bubble">i love your smile</div>
+      <div class="bubble">you mean so much to me</div>
+    </div>
+
     <img src="tulips.jpg" class="flower-img">
 
-    <div class="bubble left b1">you make me happy</div>
-    <div class="bubble left b2">i love your smile</div>
-    <div class="bubble left b3">you mean so much to me</div>
+    <div class="bubble-group right">
+      <div class="bubble">you're special</div>
+      <div class="bubble">you deserve the best</div>
+      <div class="bubble">i appreciate you</div>
+    </div>
 
-    <div class="bubble right b4">you're special</div>
-    <div class="bubble right b5">you deserve the best</div>
-    <div class="bubble right b6">i appreciate you</div>
   </div>
 
-  <button class="btn" onclick="showPage('menu')">RETURN</button>
+  <button class="btn back-btn" onclick="showPage('menu')">← Back</button>
 </div>
 
 <!-- IMAGE POPUP -->
