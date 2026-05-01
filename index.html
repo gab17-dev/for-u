@@ -2,197 +2,318 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For My Love ❤️</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Pacifico&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f4f4f4;
-    text-align: center;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f4f4f4;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  text-align: center;
+  color: #7a0c0c;
 }
 
-/* GENERAL */
 .page {
-    display: none;
-    padding: 40px;
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+.active { display: flex; }
 
-.active {
-    display: block;
-}
-
-h1 {
-    font-family: 'Pacifico', cursive;
-    color: darkred;
-    font-size: 50px;
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
 }
 
 /* BUTTON */
 .btn {
-    border: 2px solid darkred;
-    padding: 12px 25px;
-    border-radius: 25px;
-    margin-top: 20px;
-    display: inline-block;
-    cursor: pointer;
-    color: darkred;
+  margin-top: 20px;
+  padding: 10px 25px;
+  border: 2px solid #7a0c0c;
+  border-radius: 25px;
+  background: transparent;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #7a0c0c;
+  color: white;
 }
 
-/* HOME */
+/* MENU */
+.menu-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  margin-bottom: 40px;
+}
+
 .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 200px);
-    gap: 40px;
-    justify-content: center;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  gap: 30px;
 }
 
 .card {
-    border: 3px solid darkred;
-    border-radius: 25px;
-    height: 130px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    cursor: pointer;
+  height: 120px;
+  border: 3px solid #7a0c0c;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-/* FLOWER PAGE */
-.flower-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
+.icon {
+  width: 50px;
+  height: 50px;
 }
 
-.flower-container img {
-    width: 250px;
+/* MEMORIES */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* TEXT BUTTONS */
-.text-grid {
-    display: flex;
-    justify-content: space-between;
-    max-width: 800px;
-    margin: auto;
+.gallery img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.1);
 }
 
-.text-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+/* IMAGE POPUP */
+#imgPopup {
+  position: fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background: rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+#popupImg {
+  max-width:90%;
+  max-height:90%;
+  border-radius:15px;
 }
 
-.text-btn {
-    border: 2px solid darkred;
-    padding: 10px 20px;
-    border-radius: 20px;
+/* LETTER ANIMATION */
+.envelope {
+  width: 200px;
+  height: 120px;
+  background: #7a0c0c;
+  position: relative;
+  cursor: pointer;
 }
 
-/* MESSAGE PAGE */
-.message-box {
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.6;
-    color: darkred;
+.envelope:before {
+  content: "";
+  position: absolute;
+  border-width: 60px 100px 0 100px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  top: 0;
+  left: 0;
+  transform-origin: top;
+  transition: 0.6s;
 }
 
-/* PICTURES */
-.pictures {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
+.letter {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  background: white;
+  padding: 15px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.6s;
 }
 
-.pictures img {
-    width: 200px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 20px;
+.open .envelope:before {
+  transform: rotateX(180deg);
+}
+
+.open .letter {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FLOWERS */
+.flower-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.flower-img {
+  width: 280px;
+}
+
+.bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bubble {
+  border: 2px solid #7a0c0c;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: white;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HOME -->
-<div class="page active" id="home">
-    <h1>These are for you!</h1>
-
-    <div class="grid">
-        <div class="card" onclick="showPage('flower')">🎵</div>
-        <div class="card" onclick="showPage('message')">💌</div>
-        <div class="card" onclick="showPage('pictures')">📷</div>
-        <div class="card" onclick="showPage('flower')">🌷</div>
-    </div>
+<!-- START -->
+<div class="page active" id="start">
+  <div class="title">Hello My Love ❤️</div>
+  <p>Do you want to see your gift?</p>
+  <button class="btn" onclick="showPage('menu')">YES PLEASE</button>
+  <button class="btn" onclick="showPage('noPage')">NO THANKS</button>
 </div>
 
-<!-- FLOWER PAGE -->
-<div class="page" id="flower">
-
-    <div class="text-grid">
-        <div class="text-column">
-            <div class="text-btn">you make me happy</div>
-            <div class="text-btn">i love your smile</div>
-            <div class="text-btn">you mean so much to me</div>
-        </div>
-
-        <div class="flower-container">
-            <img src="https://i.imgur.com/7yUvePI.png">
-        </div>
-
-        <div class="text-column">
-            <div class="text-btn">you're special</div>
-            <div class="text-btn">you deserve the best</div>
-            <div class="text-btn">i appreciate you</div>
-        </div>
-    </div>
-
-    <div class="btn" onclick="showPage('home')">RETURN</div>
+<!-- NO PAGE -->
+<div class="page" id="noPage">
+  <div style="font-size:40px;">🥺</div>
+  <div class="title">I promise you'll like it</div>
+  <button class="btn" onclick="showPage('start')">TRY AGAIN</button>
 </div>
 
-<!-- MESSAGE PAGE -->
+<!-- MENU -->
+<div class="page" id="menu">
+  <div class="menu-title">These are for you!</div>
+
+  <div class="grid">
+    <div class="card" onclick="showPage('song')">
+      <svg class="icon" viewBox="0 0 24 24">
+        <circle cx="6" cy="18" r="3" stroke="#7a0c0c" fill="none"/>
+        <path d="M9 18V5l10-2v13" stroke="#7a0c0c" fill="none"/>
+      </svg>
+    </div>
+
+    <div class="card" onclick="showPage('message')">
+      <svg class="icon" viewBox="0 0 24 24">
+        <rect x="3" y="6" width="18" height="12" stroke="#7a0c0c" fill="none"/>
+        <path d="M3 7l9 6 9-6" stroke="#7a0c0c"/>
+      </svg>
+    </div>
+
+    <div class="card" onclick="showPage('memories')">
+      <svg class="icon" viewBox="0 0 24 24">
+        <rect x="3" y="7" width="18" height="12" stroke="#7a0c0c" fill="none"/>
+        <circle cx="12" cy="13" r="3" stroke="#7a0c0c"/>
+      </svg>
+    </div>
+
+    <div class="card" onclick="showPage('flowers')">
+      <svg class="icon" viewBox="0 0 24 24">
+        <circle cx="12" cy="10" r="3" stroke="#7a0c0c"/>
+        <path d="M12 13v6" stroke="#7a0c0c"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- SONG -->
+<div class="page" id="song">
+  <h2>Song about you</h2>
+  <iframe width="300" height="200"
+    src="https://www.youtube.com/embed/2Vv-BfVoq4g"></iframe>
+  <button class="btn" onclick="showPage('menu')">RETURN</button>
+</div>
+
+<!-- MESSAGE -->
 <div class="page" id="message">
-    <h2 style="color:darkred;">Message for my love</h2>
+  <h2>Message for my love</h2>
 
-    <div class="message-box">
-        <p><b>Dear my baby love love</b></p>
+  <div id="letterBox" onclick="openLetter()">
+    <div class="envelope"></div>
 
-        <p>
-        When i met you and i got to know you it really changed my perspective in life bago kita makilala i didn't know loving someone could be this beautiful every time i got to know a thing about you it made me realize how much i want to learn about you and how much i value you and i just want you to know that as time goes by as im learning each and everything about you each it leads to me loving you more than i could say kaya naniniwala talaga ako sa saying na "knowing someone leads to loving them more"
-        </p>
-
-        <p>
-        and i want you to know that i value you i treasure you i cherished you and i will do whatever it takes to make you smile kase i love ur smile and lastly baby i just wanted to thank you na you're making me a better man and i am very very thankful that you are my motivation and my strength to keep moving forward.
-        </p>
-
-        <p><b>i love you so much my baby ❤️</b></p>
+    <div class="letter">
+      You make every day better just by being in it.<br><br>
+      I appreciate you more than words can say.<br><br>
+      I'm really lucky to have you ❤️
     </div>
+  </div>
 
-    <div class="btn" onclick="showPage('home')">RETURN</div>
+  <button class="btn" onclick="showPage('menu')">RETURN</button>
 </div>
 
-<!-- PICTURES PAGE -->
-<div class="page" id="pictures">
-    <h1>Captured Memories</h1>
+<!-- MEMORIES -->
+<div class="page" id="memories">
+  <h2>Captured Memories</h2>
 
-    <div class="pictures">
-        <img src="https://i.imgur.com/1.jpg">
-        <img src="https://i.imgur.com/2.jpg">
-        <img src="https://i.imgur.com/3.jpg">
+  <div class="gallery">
+    <img src="pic1.jpg" onclick="openImage(this.src)">
+    <img src="pic2.jpg" onclick="openImage(this.src)">
+    <img src="pic3.jpg" onclick="openImage(this.src)">
+  </div>
+
+  <button class="btn" onclick="showPage('menu')">RETURN</button>
+</div>
+
+<!-- FLOWERS -->
+<div class="page" id="flowers">
+  <h2 class="title">TULIPS</h2>
+
+  <div class="flower-box">
+
+    <div class="bubbles">
+      <div class="bubble">you make me happy</div>
+      <div class="bubble">i love your smile</div>
+      <div class="bubble">you mean so much to me</div>
     </div>
 
-    <div class="btn" onclick="showPage('home')">RETURN</div>
+    <img src="tulips.jpg" class="flower-img">
+
+    <div class="bubbles">
+      <div class="bubble">you're special</div>
+      <div class="bubble">you deserve the best</div>
+      <div class="bubble">i appreciate you</div>
+    </div>
+
+  </div>
+
+  <button class="btn" onclick="showPage('menu')">RETURN</button>
+</div>
+
+<!-- POPUP -->
+<div id="imgPopup" onclick="closeImage()">
+  <img id="popupImg">
 </div>
 
 <script>
-function showPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function openImage(src) {
+  document.getElementById("imgPopup").style.display="flex";
+  document.getElementById("popupImg").src=src;
+}
+
+function closeImage() {
+  document.getElementById("imgPopup").style.display="none";
+}
+
+function openLetter() {
+  document.getElementById("letterBox").classList.toggle("open");
 }
 </script>
 
