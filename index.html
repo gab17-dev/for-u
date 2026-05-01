@@ -102,39 +102,65 @@ body {
   max-width: 900px;
 }
 
-/* flower */
-.flower-img {
-  width: 260px;
-}
-
-/* bubble groups */
-.bubble-group {
+.card-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+}
+
+/* main bordered card */
+.flower-card {
+  position: relative;
+  width: 800px;
+  max-width: 90%;
+  height: 500px;
+  border: 3px solid #7a0c0c;
+  border-radius: 25px;
+  margin: 20px 0;
+  background: white;
+}
+
+/* flower center */
+.flower-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
 }
 
 /* bubbles */
 .bubble {
+  position: absolute;
   padding: 10px 15px;
   border: 2px solid #7a0c0c;
   border-radius: 20px;
   background: white;
-  font-size: 13px;
+  font-size: 12px;
+  max-width: 150px;
   text-align: center;
-  min-width: 140px;
 }
 
-.left { left: 0; }
-.right { right: 0; }
+/* LEFT bubbles */
+.left {
+  left: -10px;
+  transform: translateX(-100%);
+}
 
-.b1 { top: 10%; }
+/* RIGHT bubbles */
+.right {
+  right: -10px;
+  transform: translateX(100%);
+}
+
+/* vertical positioning */
+.b1 { top: 15%; }
 .b2 { top: 40%; }
-.b3 { top: 70%; }
+.b3 { top: 65%; }
 
 .b4 { top: 15%; }
-.b5 { top: 45%; }
-.b6 { top: 75%; }
+.b5 { top: 40%; }
+.b6 { top: 65%; }
 </style>
 </head>
 
@@ -223,28 +249,30 @@ body {
 
 <!-- FLOWERS -->
 <div class="page" id="flowers">
-  <h2 class="title">TULIPS</h2>
-  <p class="subtitle">your favorite flower</p>
+  <div class="card-wrapper">
 
-  <div class="flower-container">
+    <h2 class="title">TULIPS</h2>
+    <p class="subtitle">your favorite flower</p>
 
-    <div class="bubble-group left">
-      <div class="bubble">you make me happy</div>
-      <div class="bubble">i love your smile</div>
-      <div class="bubble">you mean so much to me</div>
+    <div class="flower-card">
+
+      <img src="tulips.jpg" class="flower-img">
+
+      <!-- LEFT -->
+      <div class="bubble left b1">you make me happy</div>
+      <div class="bubble left b2">i love your smile</div>
+      <div class="bubble left b3">you mean so much to me</div>
+
+      <!-- RIGHT -->
+      <div class="bubble right b4">you're special</div>
+      <div class="bubble right b5">you deserve the best</div>
+      <div class="bubble right b6">i appreciate you</div>
+
     </div>
 
-    <img src="tulips.jpg" class="flower-img">
-
-    <div class="bubble-group right">
-      <div class="bubble">you're special</div>
-      <div class="bubble">you deserve the best</div>
-      <div class="bubble">i appreciate you</div>
-    </div>
+    <button class="btn" onclick="showPage('menu')">RETURN</button>
 
   </div>
-
-  <button class="btn" onclick="showPage('menu')">RETURN</button>
 </div>
 
 <!-- IMAGE POPUP -->
