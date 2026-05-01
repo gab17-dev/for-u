@@ -11,12 +11,13 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #fff;
   color: #7a0c0c;
   text-align: center;
+
+  background-color: #fff;
+  background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
 }
 
-/* Pages */
 .page {
   display: none;
   height: 100vh;
@@ -24,18 +25,13 @@ body {
   align-items: center;
   flex-direction: column;
 }
+.active { display: flex; }
 
-.active {
-  display: flex;
-}
-
-/* Title */
 .title {
   font-family: 'Pacifico', cursive;
   font-size: 2.5rem;
 }
 
-/* Buttons */
 .btn {
   margin: 10px;
   padding: 10px 20px;
@@ -45,13 +41,11 @@ body {
   color: #7a0c0c;
   cursor: pointer;
 }
-
 .btn:hover {
   background: #7a0c0c;
   color: white;
 }
 
-/* Menu grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 150px);
@@ -66,30 +60,88 @@ body {
   cursor: pointer;
 }
 
-/* Dodging button */
-#noBtn {
-  position: absolute;
-}
-
-/* Simple gallery */
 .gallery img {
   width: 120px;
   margin: 5px;
   border-radius: 10px;
+}
+
+/* FLOWER */
+.flower-box {
+  position: relative;
+  width: 90%;
+  max-width: 700px;
+  height: 420px;
+  margin: 40px auto;
+  border: 3px solid #7a0c0c;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.flower-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 90px;
+}
+
+.bubble {
+  position: absolute;
+  max-width: 150px;
+  padding: 10px;
+  border: 2px solid #7a0c0c;
+  border-radius: 20px;
+  background: white;
+  font-size: 12px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: pop 0.5s forwards;
+}
+
+.left { left: -10px; }
+.b1 { top: 10%; animation-delay: .2s; }
+.b2 { top: 40%; animation-delay: .4s; }
+.b3 { top: 70%; animation-delay: .6s; }
+
+.right { right: -10px; }
+.b4 { top: 15%; animation-delay: .8s; }
+.b5 { top: 45%; animation-delay: 1s; }
+.b6 { top: 75%; animation-delay: 1.2s; }
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #7a0c0c;
+  top: 50%;
+}
+.left::after { right: -30px; }
+.right::after { left: -30px; }
+
+@keyframes pop {
+  to { opacity: 1; transform: scale(1); }
 }
 </style>
 </head>
 
 <body>
 
-<!-- START PAGE -->
+<!-- START -->
 <div class="page active" id="start">
   <div class="title">Hello My Love ❤️</div>
   <p>Do you want to see your gift?</p>
-  <div>
-    <button class="btn" onclick="showPage('menu')">YES PLEASE</button>
-    <button class="btn" id="noBtn">NO THANKS</button>
-  </div>
+
+  <button class="btn" onclick="showPage('menu')">YES PLEASE</button>
+  <button class="btn" onclick="showPage('noPage')">NO THANKS</button>
+</div>
+
+<!-- NO PAGE -->
+<div class="page" id="noPage">
+  <div style="font-size:40px;">🥺</div>
+  <div class="title">I promise you'll like it</div>
+  <button class="btn" onclick="showPage('start')">TRY AGAIN</button>
 </div>
 
 <!-- MENU -->
@@ -97,10 +149,10 @@ body {
   <div class="title">These are for you!</div>
 
   <div class="grid">
-    <div class="card" onclick="showPage('song')">🎵 Song</div>
-    <div class="card" onclick="showPage('message')">💌 Message</div>
-    <div class="card" onclick="showPage('memories')">📸 Memories</div>
-    <div class="card" onclick="showPage('flowers')">🌷 Flowers</div>
+    <div class="card" onclick="showPage('song')">🎵</div>
+    <div class="card" onclick="showPage('message')">💌</div>
+    <div class="card" onclick="showPage('memories')">📸</div>
+    <div class="card" onclick="showPage('flowers')">🌷</div>
   </div>
 </div>
 
@@ -119,47 +171,57 @@ body {
 <!-- MESSAGE -->
 <div class="page" id="message">
   <h2>Message for my love</h2>
-  <p style="max-width: 400px;">
-    You make everything better. I'm really lucky to have you.
-    I hope this little website makes you smile 💕
+
+  <p style="max-width:400px;">
+    You make every day better just by being in it.  
+    I appreciate you more than words can say ❤️
   </p>
+
   <button class="btn" onclick="showPage('menu')">RETURN</button>
 </div>
 
 <!-- MEMORIES -->
 <div class="page" id="memories">
   <h2>Captured Memories</h2>
+
   <div class="gallery">
     <img src="https://picsum.photos/200?1">
     <img src="https://picsum.photos/200?2">
     <img src="https://picsum.photos/200?3">
   </div>
+
   <button class="btn" onclick="showPage('menu')">RETURN</button>
 </div>
 
 <!-- FLOWERS -->
 <div class="page" id="flowers">
-  <h2>🌷 Tulips</h2>
-  <p>Your favorite flower 💖</p>
+
+  <h2 class="title">TULIPS</h2>
+  <p>your favorite flower</p>
+
+  <div class="flower-box">
+
+    <div class="flower-center">🌷</div>
+
+    <div class="bubble left b1">you make me happy</div>
+    <div class="bubble left b2">i love your smile</div>
+    <div class="bubble left b3">you mean so much to me</div>
+
+    <div class="bubble right b4">you're special</div>
+    <div class="bubble right b5">you deserve the best</div>
+    <div class="bubble right b6">i appreciate you</div>
+
+  </div>
+
   <button class="btn" onclick="showPage('menu')">RETURN</button>
+
 </div>
 
 <script>
-// Page switch
-function showPage(pageId) {
+function showPage(id) {
   document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(pageId).classList.add("active");
+  document.getElementById(id).classList.add("active");
 }
-
-// Dodging NO button
-const noBtn = document.getElementById("noBtn");
-
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 50);
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-});
 </script>
 
 </body>
