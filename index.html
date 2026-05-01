@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For You ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
@@ -30,7 +31,17 @@ h1 {
     font-family: 'Pacifico', cursive;
     color: #8b0000;
     font-size: 3rem;
-    margin-bottom: 30px;
+}
+
+/* BUTTON */
+button {
+    margin: 10px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    border: 2px solid #8b0000;
+    background: transparent;
+    color: #8b0000;
+    cursor: pointer;
 }
 
 /* GRID MENU */
@@ -48,36 +59,22 @@ h1 {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: 0.3s;
-}
-.card:hover {
-    transform: scale(1.05);
 }
 
+/* ICON */
 .icon {
     width: 50px;
     height: 50px;
     stroke: #8b0000;
 }
 
-/* BUTTON */
-button {
-    margin-top: 30px;
-    padding: 10px 25px;
-    border-radius: 25px;
-    border: 2px solid #8b0000;
-    background: transparent;
-    color: #8b0000;
-    cursor: pointer;
-}
-
-/* FLOWER PAGE */
+/* FLOWER */
 .flower-container {
     display: grid;
     grid-template-columns: 1fr 300px 1fr;
     align-items: center;
-    width: 100%;
     max-width: 900px;
+    width: 100%;
 }
 
 .flower-img {
@@ -97,7 +94,6 @@ button {
     color: #8b0000;
 }
 
-/* FIX RETURN CENTER */
 .center-btn {
     display: flex;
     justify-content: center;
@@ -121,7 +117,6 @@ button {
     border-bottom: 80px solid #eee;
     position: absolute;
     top: -80px;
-    left: 0;
     transition: 0.6s;
 }
 
@@ -135,25 +130,15 @@ button {
     background: white;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     opacity: 0;
     transition: 0.6s;
     color: #8b0000;
 }
 
-.open .flap {
-    transform: rotateX(180deg);
-}
-
+.open .flap { transform: rotateX(180deg); }
 .open .letter {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
-}
-
-/* MESSAGE TEXT */
-.message-text {
-    line-height: 1.6;
-    text-align: left;
 }
 
 /* GALLERY */
@@ -165,26 +150,34 @@ button {
 .gallery img {
     width: 150px;
     border-radius: 15px;
-    cursor: pointer;
-    transition: 0.3s;
 }
-
-.gallery img:hover {
-    transform: scale(1.1);
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- WELCOME PAGE -->
+<div class="page active" id="welcome">
+    <h1>Hello My Love ❤️</h1>
+    <p>Do you want to see your gift?</p>
+    <div>
+        <button onclick="openPage('home')">YES PLEASE</button>
+        <button onclick="openPage('noPage')">NO THANKS</button>
+    </div>
+</div>
+
+<!-- NO PAGE -->
+<div class="page" id="noPage">
+    <h1>I promise you'll like it 🥺</h1>
+    <button onclick="openPage('welcome')">TRY AGAIN</button>
+</div>
+
 <!-- HOME -->
-<div class="page active" id="home">
+<div class="page" id="home">
     <h1>These are for you!</h1>
 
     <div class="grid">
         <div class="card" onclick="openPage('song')">
-            <!-- MUSIC ICON -->
             <svg class="icon" viewBox="0 0 24 24">
                 <path d="M9 18V5l12-2v13"/>
                 <circle cx="6" cy="18" r="3"/>
@@ -193,7 +186,6 @@ button {
         </div>
 
         <div class="card" onclick="openPage('letterPage')">
-            <!-- ENVELOPE -->
             <svg class="icon" viewBox="0 0 24 24">
                 <rect x="2" y="5" width="20" height="14" fill="none" stroke-width="2"/>
                 <polyline points="2,5 12,13 22,5" fill="none" stroke-width="2"/>
@@ -201,7 +193,6 @@ button {
         </div>
 
         <div class="card" onclick="openPage('gallery')">
-            <!-- CAMERA -->
             <svg class="icon" viewBox="0 0 24 24">
                 <rect x="3" y="7" width="18" height="12" fill="none" stroke-width="2"/>
                 <circle cx="12" cy="13" r="3"/>
@@ -209,10 +200,9 @@ button {
         </div>
 
         <div class="card" onclick="openPage('flower')">
-            <!-- FLOWER ICON -->
             <svg class="icon" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3"/>
-                <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>
+                <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
             </svg>
         </div>
     </div>
@@ -225,13 +215,11 @@ button {
     </div>
 
     <div class="letter" id="letterContent">
-        <div class="message-text">
         <b>Dear my baby love love</b><br><br>
 
-        When i met you and i got to know you it really changed my perspective in life bago kita makilala i didn't know loving someone could be this beautiful every time i got to know a thing about you it made me realize how much i want to learn about you and how much i value you and i just want you to know that as time goes by as im learning each and everything about you each it leads to me loving you more than i could say kaya naniniwala talaga ako sa saying na "knowing someone leads to loving them more" and i want you to know that i value you i treasure you i cherished you and i will do whatever it takes to make you smile kase i love ur smile and lastly baby i just wanted to thank you na you're making me a better man and i am very very thankful that you are my motivation and my strength to keep moving forward.<br><br>
+        When i met you and i got to know you it really changed my perspective in life bago kita makilala i didn't know loving someone could be this beautiful...<br><br>
 
         i love you so much my baby ❤️
-        </div>
     </div>
 
     <button onclick="goHome()">RETURN</button>
@@ -263,20 +251,17 @@ button {
 <!-- GALLERY -->
 <div class="page" id="gallery">
     <h1>Captured Memories</h1>
-
     <div class="gallery">
         <img src="pic1.jpg">
         <img src="pic2.jpg">
         <img src="pic3.jpg">
     </div>
-
     <button onclick="goHome()">RETURN</button>
 </div>
 
 <!-- SONG -->
 <div class="page" id="song">
     <h1>Song for you</h1>
-
     <iframe width="300" height="180"
     src="https://www.youtube.com/embed/2Vv-BfVoq4g"
     frameborder="0" allowfullscreen></iframe>
