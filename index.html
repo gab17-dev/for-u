@@ -2,286 +2,197 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For You ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
+<title>For My Love ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #f6f6f6;
+    background: #f4f4f4;
     text-align: center;
 }
 
-/* PAGES */
+/* GENERAL */
 .page {
     display: none;
-    min-height: 100vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 40px;
 }
-.active { display: flex; }
 
-/* TITLE */
+.active {
+    display: block;
+}
+
 h1 {
     font-family: 'Pacifico', cursive;
-    color: #8b0000;
-    font-size: 3rem;
+    color: darkred;
+    font-size: 50px;
 }
 
 /* BUTTON */
-button {
-    margin: 10px;
-    padding: 10px 25px;
+.btn {
+    border: 2px solid darkred;
+    padding: 12px 25px;
     border-radius: 25px;
-    border: 2px solid #8b0000;
-    background: transparent;
-    color: #8b0000;
+    margin-top: 20px;
+    display: inline-block;
     cursor: pointer;
+    color: darkred;
 }
 
-/* GRID MENU */
+/* HOME */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 200px);
-    gap: 25px;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .card {
-    border: 3px solid #8b0000;
-    border-radius: 20px;
+    border: 3px solid darkred;
+    border-radius: 25px;
     height: 130px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 40px;
     cursor: pointer;
 }
 
-/* ICON */
-.icon {
-    width: 50px;
-    height: 50px;
-    stroke: #8b0000;
-}
-
-/* FLOWER */
+/* FLOWER PAGE */
 .flower-container {
-    display: grid;
-    grid-template-columns: 1fr 300px 1fr;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    max-width: 900px;
-    width: 100%;
+    height: 60vh;
 }
 
-.flower-img {
+.flower-container img {
     width: 250px;
 }
 
-.bubbles {
+/* TEXT BUTTONS */
+.text-grid {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: auto;
+}
+
+.text-column {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-}
-
-.bubble {
-    border: 2px solid #8b0000;
-    border-radius: 20px;
-    padding: 10px;
-    color: #8b0000;
-}
-
-.center-btn {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-/* LETTER */
-.envelope {
-    width: 220px;
-    height: 150px;
-    background: #8b0000;
-    position: relative;
-    cursor: pointer;
-}
-
-.flap {
-    width: 0;
-    height: 0;
-    border-left: 110px solid transparent;
-    border-right: 110px solid transparent;
-    border-bottom: 80px solid #eee;
-    position: absolute;
-    top: -80px;
-    transition: 0.6s;
-}
-
-.letter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 100%) scale(0.5);
-    width: 80%;
-    max-width: 600px;
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    opacity: 0;
-    transition: 0.6s;
-    color: #8b0000;
-}
-
-.open .flap { transform: rotateX(180deg); }
-.open .letter {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-}
-
-/* GALLERY */
-.gallery {
-    display: flex;
     gap: 20px;
 }
 
-.gallery img {
-    width: 150px;
-    border-radius: 15px;
+.text-btn {
+    border: 2px solid darkred;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+/* MESSAGE PAGE */
+.message-box {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    color: darkred;
+}
+
+/* PICTURES */
+.pictures {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pictures img {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- WELCOME PAGE -->
-<div class="page active" id="welcome">
-    <h1>Hello My Love ❤️</h1>
-    <p>Do you want to see your gift?</p>
-    <div>
-        <button onclick="openPage('home')">YES PLEASE</button>
-        <button onclick="openPage('noPage')">NO THANKS</button>
-    </div>
-</div>
-
-<!-- NO PAGE -->
-<div class="page" id="noPage">
-    <h1>I promise you'll like it 🥺</h1>
-    <button onclick="openPage('welcome')">TRY AGAIN</button>
-</div>
-
 <!-- HOME -->
-<div class="page" id="home">
+<div class="page active" id="home">
     <h1>These are for you!</h1>
 
     <div class="grid">
-        <div class="card" onclick="openPage('song')">
-            <svg class="icon" viewBox="0 0 24 24">
-                <path d="M9 18V5l12-2v13"/>
-                <circle cx="6" cy="18" r="3"/>
-                <circle cx="18" cy="16" r="3"/>
-            </svg>
-        </div>
-
-        <div class="card" onclick="openPage('letterPage')">
-            <svg class="icon" viewBox="0 0 24 24">
-                <rect x="2" y="5" width="20" height="14" fill="none" stroke-width="2"/>
-                <polyline points="2,5 12,13 22,5" fill="none" stroke-width="2"/>
-            </svg>
-        </div>
-
-        <div class="card" onclick="openPage('gallery')">
-            <svg class="icon" viewBox="0 0 24 24">
-                <rect x="3" y="7" width="18" height="12" fill="none" stroke-width="2"/>
-                <circle cx="12" cy="13" r="3"/>
-            </svg>
-        </div>
-
-        <div class="card" onclick="openPage('flower')">
-            <svg class="icon" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
-            </svg>
-        </div>
+        <div class="card" onclick="showPage('flower')">🎵</div>
+        <div class="card" onclick="showPage('message')">💌</div>
+        <div class="card" onclick="showPage('pictures')">📷</div>
+        <div class="card" onclick="showPage('flower')">🌷</div>
     </div>
 </div>
 
-<!-- LETTER -->
-<div class="page" id="letterPage">
-    <div class="envelope" onclick="openLetter(this)">
-        <div class="flap"></div>
-    </div>
-
-    <div class="letter" id="letterContent">
-        <b>Dear my baby love love</b><br><br>
-
-        When i met you and i got to know you it really changed my perspective in life bago kita makilala i didn't know loving someone could be this beautiful...<br><br>
-
-        i love you so much my baby ❤️
-    </div>
-
-    <button onclick="goHome()">RETURN</button>
-</div>
-
-<!-- FLOWER -->
+<!-- FLOWER PAGE -->
 <div class="page" id="flower">
-    <div class="flower-container">
-        <div class="bubbles">
-            <div class="bubble">you make me happy</div>
-            <div class="bubble">i love your smile</div>
-            <div class="bubble">you mean so much to me</div>
+
+    <div class="text-grid">
+        <div class="text-column">
+            <div class="text-btn">you make me happy</div>
+            <div class="text-btn">i love your smile</div>
+            <div class="text-btn">you mean so much to me</div>
         </div>
 
-        <img src="tulips.jpg" class="flower-img">
+        <div class="flower-container">
+        <img src="tulips.jpg">
+        </div>
 
-        <div class="bubbles">
-            <div class="bubble">you're special</div>
-            <div class="bubble">you deserve the best</div>
-            <div class="bubble">i appreciate you</div>
+        <div class="text-column">
+            <div class="text-btn">you're special</div>
+            <div class="text-btn">you deserve the best</div>
+            <div class="text-btn">i appreciate you</div>
         </div>
     </div>
 
-    <div class="center-btn">
-        <button onclick="goHome()">RETURN</button>
-    </div>
+    <div class="btn" onclick="showPage('home')">RETURN</div>
 </div>
 
-<!-- GALLERY -->
-<div class="page" id="gallery">
+<!-- MESSAGE PAGE -->
+<div class="page" id="message">
+    <h2 style="color:darkred;">Message for my love</h2>
+
+    <div class="message-box">
+        <p><b>Dear my baby love love</b></p>
+
+        <p>
+        When i met you and i got to know you it really changed my perspective in life bago kita makilala i didn't know loving someone could be this beautiful every time i got to know a thing about you it made me realize how much i want to learn about you and how much i value you and i just want you to know that as time goes by as im learning each and everything about you each it leads to me loving you more than i could say kaya naniniwala talaga ako sa saying na "knowing someone leads to loving them more"
+        </p>
+
+        <p>
+        and i want you to know that i value you i treasure you i cherished you and i will do whatever it takes to make you smile kase i love ur smile and lastly baby i just wanted to thank you na you're making me a better man and i am very very thankful that you are my motivation and my strength to keep moving forward.
+        </p>
+
+        <p><b>i love you so much my baby ❤️</b></p>
+    </div>
+
+    <div class="btn" onclick="showPage('home')">RETURN</div>
+</div>
+
+<!-- PICTURES PAGE -->
+<div class="page" id="pictures">
     <h1>Captured Memories</h1>
-    <div class="gallery">
+
+    <div class="pictures">
         <img src="pic1.jpg">
         <img src="pic2.jpg">
         <img src="pic3.jpg">
     </div>
-    <button onclick="goHome()">RETURN</button>
-</div>
 
-<!-- SONG -->
-<div class="page" id="song">
-    <h1>Song for you</h1>
-    <iframe width="300" height="180"
-    src="https://www.youtube.com/embed/2Vv-BfVoq4g"
-    frameborder="0" allowfullscreen></iframe>
-
-    <button onclick="goHome()">RETURN</button>
+    <div class="btn" onclick="showPage('home')">RETURN</div>
 </div>
 
 <script>
-function openPage(page) {
+function showPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(page).classList.add('active');
-}
-
-function goHome() {
-    openPage('home');
-}
-
-function openLetter(el) {
-    el.classList.toggle('open');
-    document.getElementById('letterContent').classList.toggle('open');
+    document.getElementById(pageId).classList.add('active');
 }
 </script>
 
