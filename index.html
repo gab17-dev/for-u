@@ -58,7 +58,35 @@ body {
   cursor: pointer;
 }
 
-/* Flower styling */
+/* Gallery */
+.gallery img {
+  width: 120px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Image popup */
+#imgPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#popupImg {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+}
+
+/* Flower */
 .flower-box {
   position: relative;
   width: 90%;
@@ -94,12 +122,6 @@ body {
 .b4 { top: 15%; }
 .b5 { top: 45%; }
 .b6 { top: 75%; }
-
-.gallery img {
-  width: 120px;
-  margin: 5px;
-  border-radius: 10px;
-}
 </style>
 </head>
 
@@ -132,7 +154,7 @@ body {
   </div>
 </div>
 
-<!-- SONG PAGE -->
+<!-- SONG -->
 <div class="page" id="song">
   <h2>Song about you</h2>
 
@@ -144,7 +166,7 @@ body {
   <button class="btn" onclick="showPage('menu')">RETURN</button>
 </div>
 
-<!-- MESSAGE PAGE -->
+<!-- MESSAGE -->
 <div class="page" id="message">
   <h2>Message for my love</h2>
 
@@ -162,9 +184,9 @@ body {
   <h2>Captured Memories</h2>
 
   <div class="gallery">
-    <img src="https://picsum.photos/200?1">
-    <img src="https://picsum.photos/200?2">
-    <img src="https://picsum.photos/200?3">
+    <img src="pic1.jpg" onclick="openImage(this.src)">
+    <img src="pic2.jpg" onclick="openImage(this.src)">
+    <img src="pic3.jpg" onclick="openImage(this.src)">
   </div>
 
   <button class="btn" onclick="showPage('menu')">RETURN</button>
@@ -176,7 +198,7 @@ body {
   <p>your favorite flower</p>
 
   <div class="flower-box">
-    <img src="tulips.png" class="flower-img">
+    <img src="tulips.jpg" class="flower-img">
 
     <div class="bubble left b1">you make me happy</div>
     <div class="bubble left b2">i love your smile</div>
@@ -190,10 +212,24 @@ body {
   <button class="btn" onclick="showPage('menu')">RETURN</button>
 </div>
 
+<!-- IMAGE POPUP -->
+<div id="imgPopup" onclick="closeImage()">
+  <img id="popupImg">
+</div>
+
 <script>
 function showPage(id) {
   document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
   document.getElementById(id).classList.add("active");
+}
+
+function openImage(src) {
+  document.getElementById("imgPopup").style.display = "flex";
+  document.getElementById("popupImg").src = src;
+}
+
+function closeImage() {
+  document.getElementById("imgPopup").style.display = "none";
 }
 </script>
 
