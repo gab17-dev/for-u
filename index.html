@@ -1,15 +1,200 @@
-<div id="music" class="page">
-  <h1>For you 🎶</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Pacifico&display=swap" rel="stylesheet">
 
-  <iframe 
-    width="300" 
-    height="170"
-    src="https://www.youtube.com/embed/VIDEO_ID"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f4;
+    text-align: center;
+}
 
-  <button onclick="go('menu')">Return</button>
+/* GENERAL */
+.page {
+    display: none;
+    padding: 40px;
+}
+
+.active {
+    display: block;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: darkred;
+    font-size: 50px;
+}
+
+/* BUTTON */
+.btn {
+    border: 2px solid darkred;
+    padding: 12px 25px;
+    border-radius: 25px;
+    margin-top: 20px;
+    display: inline-block;
+    cursor: pointer;
+    color: darkred;
+}
+
+/* HOME */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 40px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    border: 3px solid darkred;
+    border-radius: 25px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* FLOWER PAGE */
+.flower-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.flower-container img {
+    width: 250px;
+}
+
+/* TEXT BUTTONS */
+.text-grid {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: auto;
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text-btn {
+    border: 2px solid darkred;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+/* MESSAGE PAGE */
+.message-box {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    color: darkred;
+}
+
+/* PICTURES */
+.pictures {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pictures img {
+    width: 200px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<div class="page active" id="home">
+    <h1>These are for you!</h1>
+
+    <div class="grid">
+        <div class="card" onclick="showPage('flower')">🎵</div>
+        <div class="card" onclick="showPage('message')">💌</div>
+        <div class="card" onclick="showPage('pictures')">📷</div>
+        <div class="card" onclick="showPage('flower')">🌷</div>
+    </div>
 </div>
+
+<!-- FLOWER PAGE -->
+<div class="page" id="flower">
+
+    <div class="text-grid">
+        <div class="text-column">
+            <div class="text-btn">you make me happy</div>
+            <div class="text-btn">i love your smile</div>
+            <div class="text-btn">you mean so much to me</div>
+        </div>
+
+        <div class="flower-container">
+            <img src="https://i.imgur.com/7yUvePI.png">
+        </div>
+
+        <div class="text-column">
+            <div class="text-btn">you're special</div>
+            <div class="text-btn">you deserve the best</div>
+            <div class="text-btn">i appreciate you</div>
+        </div>
+    </div>
+
+    <div class="btn" onclick="showPage('home')">RETURN</div>
+</div>
+
+<!-- MESSAGE PAGE -->
+<div class="page" id="message">
+    <h2 style="color:darkred;">Message for my love</h2>
+
+    <div class="message-box">
+        <p><b>Dear my baby love love</b></p>
+
+        <p>
+        When i met you and i got to know you it really changed my perspective in life bago kita makilala i didn't know loving someone could be this beautiful every time i got to know a thing about you it made me realize how much i want to learn about you and how much i value you and i just want you to know that as time goes by as im learning each and everything about you each it leads to me loving you more than i could say kaya naniniwala talaga ako sa saying na "knowing someone leads to loving them more"
+        </p>
+
+        <p>
+        and i want you to know that i value you i treasure you i cherished you and i will do whatever it takes to make you smile kase i love ur smile and lastly baby i just wanted to thank you na you're making me a better man and i am very very thankful that you are my motivation and my strength to keep moving forward.
+        </p>
+
+        <p><b>i love you so much my baby ❤️</b></p>
+    </div>
+
+    <div class="btn" onclick="showPage('home')">RETURN</div>
+</div>
+
+<!-- PICTURES PAGE -->
+<div class="page" id="pictures">
+    <h1>Captured Memories</h1>
+
+    <div class="pictures">
+        <img src="https://i.imgur.com/1.jpg">
+        <img src="https://i.imgur.com/2.jpg">
+        <img src="https://i.imgur.com/3.jpg">
+    </div>
+
+    <div class="btn" onclick="showPage('home')">RETURN</div>
+</div>
+
+<script>
+function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
