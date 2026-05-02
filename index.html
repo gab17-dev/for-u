@@ -195,21 +195,41 @@ body {
   font-size: 32px;
   margin-bottom: 10px;
 }
-  @media (max-width: 600px) {
+ /* ===== FULL MOBILE FIX FOR FLOWERS ===== */
+@media (max-width: 600px) {
 
   .flower-card {
-    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 20px;
   }
 
-  .left, .right {
+  .flower-img {
     position: static;
     transform: none;
+    width: 180px;
+    margin-bottom: 15px;
+  }
+
+  /* remove absolute positioning */
+  .bubble,
+  .left,
+  .right,
+  .b1, .b2, .b3, .b4, .b5, .b6 {
+    position: static !important;
+    transform: none !important;
   }
 
   .bubble {
-    position: static;
-    margin: 5px 0;
+    display: block;
+    margin: 6px auto;
+    max-width: 90%;
+    font-size: 12px;
   }
+
+}
 
 
 </style>
