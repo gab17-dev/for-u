@@ -116,11 +116,39 @@ body {
   position: relative;
   width: 100%;
   max-width: 700px;
-  height: 500px;
+  min-height: 500px; /* changed from height */
+  padding: 60px 20px;
   border: 3px solid #7a0c0c;
   border-radius: 25px;
-  margin: 20px 0;
+  margin: 100px 0; /* extra space for connectors */
   background: white;
+}
+
+/* TOP & BOTTOM CONNECTOR LINES */
+.flower-card::before,
+.flower-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 80px;
+  border: 3px solid #7a0c0c;
+  background: white;
+}
+
+/* TOP connector */
+.flower-card::before {
+  top: -80px;
+  border-bottom: none;
+  border-radius: 80px 80px 0 0;
+}
+
+/* BOTTOM connector */
+.flower-card::after {
+  bottom: -80px;
+  border-top: none;
+  border-radius: 0 0 80px 80px;
 }
 
 /* flower center */
